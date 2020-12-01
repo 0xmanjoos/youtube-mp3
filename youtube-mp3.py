@@ -32,7 +32,7 @@ def main():
     else:
         print("Thats not a y or n ya dummy dum")
 def download(link):
-    ydl_opts = {
+    opt = {
         'format': 'bestaudio/best',
         'postprocessors': [{
             'key': 'FFmpegExtractAudio',
@@ -40,7 +40,7 @@ def download(link):
             'preferredquality': '320',
         }],
     }
-    with youtube_dl.YoutubeDL(ydl_opts) as y:
+    with youtube_dl.YoutubeDL(opt) as y:
         y.download([link])
 def importerror(module):
     subprocess.check_call([sys.executable, "-m", "pip", "install", module])
